@@ -1,0 +1,24 @@
+version: "3"
+services:
+  web:
+    # pull the image details
+    image: krishnaiitd/get-started:part2
+    deploy:
+      # Run 3 instance of above image as a service called 'web', limiting each one to use, at most, 10% of the CPU (across all cores) and 50MB of RAM. 
+      replicas: 3
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      # Immediately restart containers if one fails
+      restart_policy:
+        condition: on-failure
+    ports:
+      # Map port 4001 on the host to web's port 80.
+      - "4001:80"
+    networks:
+      # Instruct web's containers to share the port 80 via a load-balanced network called webnet. (Internally, the containers themselves publish to web's port 80 at an ephemeral port.)
+      - webnet
+# Define the webnet network with the default settings (which is a load-balanced overlay network).
+networks:
+  webnet:
