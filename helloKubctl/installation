@@ -46,3 +46,13 @@ Please consider switching to the hyperkit driver, which is intended to replace t
 See https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver for more information.
 To disable this message, run [minikube config set WantShowDriverDeprecationNotification false]
 Downloading Minikube ISO
+
+
+kubectl config use-context minikube
+
+Verify that kubectl is configured to communicate with your cluster:
+
+kubectl cluster-info
+Open the Kubernetes dashboard in a browser:
+
+minikube dashboard
