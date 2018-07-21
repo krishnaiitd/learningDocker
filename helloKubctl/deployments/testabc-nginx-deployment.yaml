@@ -1,21 +1,21 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1beta1
 metadata:
-	name: testabc-nginx-deployment
-	labels:
-		app: testabc-nginx
+  name: testabc-nginx-deployment
+  labels:
+    app: testabc-nginx
 spec:
-	replicas: 2
-	selector:
-		matchLabels:
-			app: testabc-nginx
-	template:
-		matadata:
-			labels:
-				app: testabc-nginx
-		spec:
-			containers:
-			- name: testabc-nginx
-			  image: nginx
-			  ports:
-			  - containerPort: 80 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: testabc-nginx
+  template:
+    metadata:
+      labels:
+        app: testabc-nginx
+    spec:
+      containers:
+      - name: testabc-nginx
+      image: nginx:1.7.9
+      ports:
+      - containerPort: 80
