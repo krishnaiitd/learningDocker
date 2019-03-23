@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: test-kp-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9376
